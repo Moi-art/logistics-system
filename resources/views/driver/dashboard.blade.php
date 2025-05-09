@@ -3,7 +3,7 @@
 @section('title', 'Driver Dashboard')
 
 @section('content')
-    <h1>Welcome, Driver!</h1>
-    <p>This is your dashboard.</p>
+    <h2 class="mb-3">Driver Dashboard</h2>
+    <p>Manage your trips and booking assignments here.</p>
 @endsection
 
