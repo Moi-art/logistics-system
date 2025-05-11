@@ -2,26 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'TransLink EA')</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>TransLink EA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-        <div class="container">
-            <a class="navbar-brand" href="/">TransLink EA</a>
+<body class="bg-gray-100 text-gray-800 font-sans">
+    <nav class="bg-blue-600 text-white p-4 shadow">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-semibold">TransLink EA</h1>
+            <div class="space-x-4">
+                <a href="{{ route('home') }}" class="hover:underline">Home</a>
+                <a href="{{ route('customer.dashboard') }}" class="hover:underline">Customer</a>
+                <a href="{{ route('driver.dashboard') }}" class="hover:underline">Driver</a>
+                <a href="{{ route('booking.list') }}" class="hover:underline">Bookings</a>
+            </div>
         </div>
     </nav>
 
-    <main class="container">
+    <main class="container mx-auto p-6">
         @yield('content')
     </main>
-      <!-- Footer -->
-      <footer class="bg-dark text-white text-center py-3 mt-5">
-        <div class="container">
-            &copy; 2025 TransLink EA. All rights reserved.
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,12 +1,17 @@
-<!-- book.blade.php -->
-<h2>Book a Ride</h2>
-<form action="/booking/store" method="POST">
-    @csrf
-    <label for="pickup">Pickup Location:</label>
-    <input type="text" name="pickup" required><br>
+@extends('layouts.app')
 
-    <label for="destination">Destination:</label>
-    <input type="text" name="destination" required><br>
-
-    <button type="submit">Book Now</button>
-</form>
+@section('content')
+    <h2 class="text-xl font-semibold mb-4">Book a Ride</h2>
+    <form action="{{ route('booking.store') }}" method="POST" class="bg-white p-4 rounded shadow space-y-4">
+        @csrf
+        <div>
+            <label for="origin" class="block font-medium">Origin</label>
+            <input type="text" name="origin" id="origin" class="form-control" required>
+        </div>
+        <div>
+            <label for="destination" class="block font-medium">Destination</label>
+            <input type="text" name="destination" id="destination" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success">Confirm Booking</button>
+    </form>
+@endsection

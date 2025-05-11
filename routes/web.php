@@ -6,20 +6,28 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\BookingController;
 
-// Home
+// Home Route
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+
 // Customer Routes
-Route::get('/customer/dashboard', [CustomerController::class, 'dashboard'])->name('customer.dashboard');
-Route::get('/customer/book', [CustomerController::class, 'bookRide'])->name('customer.book');
-Route::get('/customer/history', [CustomerController::class, 'history'])->name('customer.history');
+Route::prefix('customer')->name('customer.')->group(function () {
+    Route::get('/dashboard', [CustomerController::class, 'dashboard'])->name('dashboard');
+    Route::get('/book', [CustomerController::class, 'bookRide'])->name('book');
+    Route::get('/history', [CustomerController::class, 'history'])->name('history');
+});
 
 // Driver Routes
-Route::get('/driver/dashboard', [DriverController::class, 'dashboard'])->name('driver.dashboard');
-Route::get('/driver/rides', [DriverController::class, 'rides'])->name('driver.rides');
-Route::get('/driver/profile', [DriverController::class, 'profile'])->name('driver.profile');
+Route::prefix('driver')->name('driver.')->group(function () {
+    Route::get('/dashboard', [DriverController::class, 'dashboard'])->name('dashboard');
+    Route::get('/rides', [DriverController::class, 'rides'])->name('rides');
+    Route::get('/profile', [DriverController::class, 'profile'])->name('profile');
+});
 
 // Booking Routes
-Route::get('/booking/create', [BookingController::class, 'create'])->name('booking.create');
-Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store');
-Route::get('/booking/list', [BookingController::class, 'list'])->name('booking.list');
+Route::prefix('booking')->name('booking.')->group(function () {
+    Route::get('/create', [BookingController::class, 'create'])->name('create');
+    Route::post('/store', [BookingController::class, 'store'])->name('store');
+    Route::get('/list', [BookingController::class, 'list'])->name('list');
+});
+

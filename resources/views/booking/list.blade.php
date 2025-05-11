@@ -1,7 +1,7 @@
-<!-- list.blade.php -->
-<h2>All Bookings</h2>
-<ul>
-    <li>Booking #1001 - John - Kisumu</li>
-    <li>Booking #1002 - Jane - Mombasa</li>
-    <!-- Dynamic bookings go here -->
-</ul>
+@extends('layouts.app')
+
+@section('content')
+    <h2 class="text-xl font-semibold mb-4">Booking List</h2>
+    <p>No bookings yet.</p>
+@endsection
+

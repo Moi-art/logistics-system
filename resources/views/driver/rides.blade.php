@@ -1,7 +1,6 @@
-<!-- rides.blade.php -->
-<h2>My Rides</h2>
-<ul>
-    <li>Ride to Nairobi - Completed</li>
-    <li>Ride to Kisumu - In Progress</li>
-    <!-- Add dynamic rides later -->
-</ul>
+@extends('layouts.app')
+
+@section('content')
+    <h2 class="text-xl font-semibold mb-4">Assigned Rides</h2>
+    <p>No rides assigned yet.</p>
+@endsection

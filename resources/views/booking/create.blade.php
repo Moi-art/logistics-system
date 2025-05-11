@@ -1,3 +1,6 @@
-<!-- create.blade.php -->
-<h2>Create a Booking</h2>
-<p>Booking form is shown in customer/book instead. This can be reused or redirected.</p>
+@extends('layouts.app')
+
+@section('content')
+    <h2 class="text-xl font-semibold mb-4">New Booking</h2>
+    <p>Use the customer book form to create a new ride request.</p>
+@endsection

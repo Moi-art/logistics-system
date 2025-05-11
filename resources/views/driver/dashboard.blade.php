@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Driver Dashboard')
-
 @section('content')
-    <h2 class="mb-3">Driver Dashboard</h2>
-    <p>Manage your trips and booking assignments here.</p>
+    <h2 class="text-xl font-semibold mb-4">Driver Dashboard</h2>
+    <p>Manage your assigned rides and profile info.</p>
 @endsection
+
 
