@@ -21,4 +21,9 @@ class BookingController extends Controller
     {
         return view('booking.list'); // views/booking/list.blade.php
     }
+    public function index()
+{
+    return view('booking.index');
+}
+
 }

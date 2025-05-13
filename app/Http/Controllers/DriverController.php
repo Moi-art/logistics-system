@@ -20,5 +20,11 @@ class DriverController extends Controller
     {
         return view('driver.profile'); // views/driver/profile.blade.php
     }
+    public function index()
+{
+    return view('driver.index');
+}
+
+
 }
 

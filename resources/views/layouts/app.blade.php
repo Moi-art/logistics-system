@@ -3,24 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>TransLink EA</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans">
-    <nav class="bg-blue-600 text-white p-4 shadow">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-xl font-semibold">TransLink EA</h1>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <nav class="bg-white shadow p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="{{ route('home') }}" class="text-xl font-bold text-blue-600">TransLink EA</a>
             <div class="space-x-4">
-                <a href="{{ route('home') }}" class="hover:underline">Home</a>
-                <a href="{{ route('customer.dashboard') }}" class="hover:underline">Customer</a>
-                <a href="{{ route('driver.dashboard') }}" class="hover:underline">Driver</a>
-                <a href="{{ route('booking.list') }}" class="hover:underline">Bookings</a>
+                <a href="{{ route('customer.index') }}" class="text-sm text-gray-700 hover:text-blue-600">Customer</a>
+                <a href="{{ route('driver.index') }}" class="text-sm text-gray-700 hover:text-green-600">Driver</a>
+                <a href="{{ route('booking.index') }}" class="text-sm text-gray-700 hover:text-cyan-600">Bookings</a>
             </div>
         </div>
     </nav>
 
-    <main class="container mx-auto p-6">
+    <main class="py-6">
         @yield('content')
     </main>
+
+    <footer class="text-center text-sm py-4 border-t mt-10">
+        &copy; 2025 TransLink EA. All rights reserved.
+    </footer>
+
 </body>
 </html>
+

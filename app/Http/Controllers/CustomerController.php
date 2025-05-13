@@ -20,5 +20,10 @@ class CustomerController extends Controller
     {
         return view('customer.history'); // views/customer/history.blade.php
     }
+    public function index()
+{
+    return view('customer.index');
+}
+
 }
 

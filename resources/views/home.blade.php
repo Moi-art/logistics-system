@@ -1,32 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mx-auto px-4 py-12">
-    <div class="text-center mb-8">
-        <h1 class="text-4xl font-bold text-primary mb-4">Welcome to TransLink EA</h1>
-        <p class="text-lg text-gray-600">Your trusted logistics and ride-sharing platform for East Africa.</p>
-    </div>
+<div class="bg-gradient-to-r from-blue-50 to-white min-h-screen p-10">
+    <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">TransLink EA</h1>
+        <p class="text-lg text-gray-600 mb-6">Connect. Deliver. Empower East Africa.</p>
+        <p class="text-md text-gray-700 mb-10">
+            TransLink EA is your trusted logistics platform connecting carriers and shippers across East Africa.
+            We simplify freight management and enable seamless cargo transportation throughout the region.
+        </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Customer Panel -->
-        <div class="bg-white shadow rounded-xl p-6 hover:shadow-lg transition">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-2">Customer</h2>
-            <p class="text-gray-600 mb-4">Book and manage your logistics quickly and easily.</p>
-            <a href="{{ route('customer.dashboard') }}" class="btn btn-primary w-full">Go to Dashboard</a>
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Customer Card -->
+            <div class="bg-white rounded shadow p-6">
+                <h3 class="text-xl font-semibold mb-2">Customer</h3>
+                <p class="text-sm text-gray-600 mb-4">Book and manage your logistics quickly and easily.</p>
+                <a href="{{ route('customer.index') }}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                    Customer Dashboard
+                </a>
+            </div>
 
-        <!-- Driver Panel -->
-        <div class="bg-white shadow rounded-xl p-6 hover:shadow-lg transition">
-            <h2 class="text-2xl font-semibold text-green-600 mb-2">Driver</h2>
-            <p class="text-gray-600 mb-4">View your ride requests and profile information.</p>
-            <a href="{{ route('driver.dashboard') }}" class="btn btn-success w-full">Go to Driver Panel</a>
-        </div>
+            <!-- Driver Card -->
+            <div class="bg-white rounded shadow p-6">
+                <h3 class="text-xl font-semibold mb-2">Driver</h3>
+                <p class="text-sm text-gray-600 mb-4">View your ride requests and profile information.</p>
+                <a href="{{ route('driver.index') }}" class="inline-block px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+                    Driver Dashboard
+                </a>
+            </div>
 
-        <!-- Bookings Panel -->
-        <div class="bg-white shadow rounded-xl p-6 hover:shadow-lg transition">
-            <h2 class="text-2xl font-semibold text-indigo-600 mb-2">Bookings</h2>
-            <p class="text-gray-600 mb-4">Create, view, and manage all booking requests.</p>
-            <a href="{{ route('booking.create') }}" class="btn btn-info w-full">Make a Booking</a>
+            <!-- Bookings Card -->
+            <div class="bg-white rounded shadow p-6">
+                <h3 class="text-xl font-semibold mb-2">Bookings</h3>
+                <p class="text-sm text-gray-600 mb-4">Manage and track bookings.</p>
+                <a href="{{ route('booking.index') }}" class="inline-block px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-700">
+                    Booking Dashboard
+                </a>
+            </div>
         </div>
     </div>
 </div>
