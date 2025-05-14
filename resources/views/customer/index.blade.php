@@ -1,27 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
-    <h2 class="text-3xl font-bold mb-6 text-blue-700 border-b pb-2">👤 Customer Dashboard</h2>
-    <p class="mb-6 text-gray-600">Welcome! Here you can manage bookings, view history, and update your profile.</p>
+    <h1 class="text-2xl font-bold mb-4">Customers</h1>
+    <a href="{{ route('admin.customers.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block">Add Customer</a>
 
-    <ul class="space-y-4">
-        <li>
-            <a href="{{ route('booking.create') }}" class="block px-4 py-3 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-md shadow transition">
-                ➕ Book a New Ride
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('booking.list') }}" class="block px-4 py-3 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-md shadow transition">
-                📑 View Booking History
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('customer.profile') }}" class="block px-4 py-3 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-md shadow transition">
-                ⚙️ Manage My Profile
-            </a>
-        </li>
-    </ul>
+    @extends('layouts.app')
+
+@section('content')
+<div class="p-4">
+    <h1 class="text-2xl font-bold mb-4">Customers</h1>
+    @foreach ($customers as $customer)
+        <div class="p-2 border mb-2">
+            {{ $customer->name }}
+        </div>
+    @endforeach
 </div>
+@endsection
+
+
+    <ul>
+        @foreach($customers as $customer)
+            <li>{{ $customer->name }}
+                <a href="{{ route('admin.customers.show', $customer->id) }}">View</a> |
+                <a href="{{ route('customers.edit', $customer->id) }}">Edit</a>
+            </li>
+        @endforeach
+    </ul>
 @endsection
 

@@ -1,29 +1,26 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    public function dashboard()
-    {
-        return view('customer.dashboard'); // views/customer/dashboard.blade.php
-    }
-
-    public function bookRide()
-    {
-        return view('customer.book'); // views/customer/book.blade.php
-    }
-
-    public function history()
-    {
-        return view('customer.history'); // views/customer/history.blade.php
-    }
     public function index()
-{
-    return view('customer.index');
-}
+    {
+        $customers = Customer::all();
+        return view('admin.customers.index', compact('customers'));
+    }
 
-}
+    public function create()
+    {
+        return view('admin.customers.create');
+    }
 
+    public function store(Request $request)
+    {
+        $input = $request->all();
+ $customer = Customer::create($request->except('_token'));
+        return redirect()->route('admin.customers.index');
+    }
+}

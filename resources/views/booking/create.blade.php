@@ -1,19 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-yellow-50 p-6 rounded-md shadow">
-    <h2 class="text-2xl font-semibold mb-4">Book a Ride</h2>
-    <form action="{{ route('booking.store') }}" method="POST" class="space-y-4">
+    <h2>Create New Booking</h2>
+    <form action="{{ route('bookings.store') }}" method="POST">
         @csrf
-        <div>
-            <label for="pickup" class="block font-medium">Pickup Location</label>
-            <input type="text" id="pickup" name="pickup" class="w-full p-2 border rounded" required>
+        <div class="mb-3">
+            <label for="customer_id" class="form-label">Customer ID</label>
+            <input type="text" class="form-control" name="customer_id" required>
         </div>
-        <div>
-            <label for="dropoff" class="block font-medium">Drop-off Location</label>
-            <input type="text" id="dropoff" name="dropoff" class="w-full p-2 border rounded" required>
+        <div class="mb-3">
+            <label for="driver_id" class="form-label">Driver ID</label>
+            <input type="text" class="form-control" name="driver_id" required>
         </div>
-        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Submit</button>
+        <div class="mb-3">
+            <label for="pickup_location" class="form-label">Pickup Location</label>
+            <input type="text" class="form-control" name="pickup_location" required>
+        </div>
+        <div class="mb-3">
+            <label for="dropoff_location" class="form-label">Dropoff Location</label>
+            <input type="text" class="form-control" name="dropoff_location" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Book Now</button>
     </form>
-</div>
 @endsection

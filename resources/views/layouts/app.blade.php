@@ -2,30 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TransLink EA</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind (optional) -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+<body class="bg-light text-dark">
 
-    <nav class="bg-white shadow p-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="{{ route('home') }}" class="text-xl font-bold text-blue-600">TransLink EA</a>
-            <div class="space-x-4">
-                <a href="{{ route('customer.index') }}" class="text-sm text-gray-700 hover:text-blue-600">Customer</a>
-                <a href="{{ route('driver.index') }}" class="text-sm text-gray-700 hover:text-green-600">Driver</a>
-                <a href="{{ route('booking.index') }}" class="text-sm text-gray-700 hover:text-cyan-600">Bookings</a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <!-- ✅ Fix here: link to 'landing' route -->
+            <a class="navbar-brand fw-bold" href="{{ route('landing') }}">TransLink EA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.customers.index') }}">Customers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.drivers.index') }}">Drivers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.bookings.index') }}">Bookings</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <main class="py-6">
+    <!-- Main Page Content -->
+    <div class="container mt-4">
         @yield('content')
-    </main>
+    </div>
 
-    <footer class="text-center text-sm py-4 border-t mt-10">
-        &copy; 2025 TransLink EA. All rights reserved.
-    </footer>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 

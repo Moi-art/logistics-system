@@ -1,27 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
-    <h2 class="text-3xl font-bold mb-6 text-cyan-700 border-b pb-2">📘 Booking Dashboard</h2>
-    <p class="mb-6 text-gray-600">Manage all current and past logistics bookings.</p>
-
-    <ul class="space-y-4">
-        <li>
-            <a href="{{ route('booking.create') }}" class="block px-4 py-3 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-md shadow transition">
-                📝 Create a New Booking
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('booking.list') }}" class="block px-4 py-3 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-md shadow transition">
-                📋 View Booking List
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('bookings.index') }}" class="block px-4 py-3 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-md shadow transition">
-                📦 Track Booking Status
-            </a>
-        </li>
-    </ul>
-</div>
+    <h2>All Bookings</h2>
+    <a href="{{ route('bookings.create') }}" class="btn btn-success mb-3">New Booking</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Customer ID</th>
+                <th>Driver ID</th>
+                <th>Pickup</th>
+                <th>Dropoff</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($bookings as $booking)
+                <tr>
+                    <td>{{ $booking->id }}</td>
+                    <td>{{ $booking->customer_id }}</td>
+                    <td>{{ $booking->driver_id }}</td>
+                    <td>{{ $booking->pickup_location }}</td>
+                    <td>{{ $booking->dropoff_location }}</td>
+                    <td>
+                        <a href="{{ route('bookings.show', $booking->id) }}" class="btn btn-info btn-sm">View</a>
+                        <a href="{{ route('bookings.edit', $booking->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{{ route('bookings.destroy', $booking->id) }}" method="POST" style="display:inline;">
+                            @csrf @method('DELETE')
+                            <button class="btn btn-danger btn-sm" onclick="return confirm('Delete this booking?')">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 @endsection
 

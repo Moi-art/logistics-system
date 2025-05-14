@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-xl font-semibold mb-4">Driver Profile</h2>
-    <p>Update your driver information here.</p>
+    <h1>Book New Customer</h1>
+    <form method="POST" action="{{ route('customers.store') }}">
+        @csrf
+        <input type="text" name="name" placeholder="Name" required>
+        <button type="submit">Save</button>
+    </form>
 @endsection

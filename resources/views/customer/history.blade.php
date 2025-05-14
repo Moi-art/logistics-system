@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-xl font-semibold mb-4">Booking History</h2>
-    <p>No booking history yet.</p>
+    <h1>Customer History</h1>
+    <p>Name: {{ $customer->name }}</p>
+    <p>Created: {{ $customer->created_at }}</p>
+    <p>Updated: {{ $customer->updated_at }}</p>
 @endsection

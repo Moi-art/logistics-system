@@ -6,35 +6,31 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\BookingController;
 
-// Home Page
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// ✅ Landing Page Route (Welcome)
+Route::get('/', function () {
+    return view('welcome');
+})->name('landing');
 
-// =====================
-// Customer Routes
-// =====================
-Route::prefix('customer')->name('customer.')->group(function () {
-    Route::get('/', [CustomerController::class, 'index'])->name('index'); // /customer
-    Route::get('/dashboard', [CustomerController::class, 'dashboard'])->name('dashboard');
-    Route::get('/profile', [CustomerController::class, 'profile'])->name('profile');
+// ✅ Admin Dashboard
+Route::get('/admin', [HomeController::class, 'index'])->name('admin.home');
+
+// ✅ Customers Routes
+Route::prefix('admin/customers')->name('admin.customers.')->group(function () {
+    Route::get('/', [CustomerController::class, 'index'])->name('index');
+    Route::get('/create', [CustomerController::class, 'create'])->name('create');
+    Route::post('/', [CustomerController::class, 'store'])->name('store');
 });
 
-// =====================
-// Driver Routes
-// =====================
-Route::prefix('driver')->name('driver.')->group(function () {
-    Route::get('/', [DriverController::class, 'index'])->name('index'); // /driver
-    Route::get('/dashboard', [DriverController::class, 'dashboard'])->name('dashboard');
-    Route::get('/rides', [DriverController::class, 'rides'])->name('rides');
-    Route::get('/deliveries', [DriverController::class, 'deliveries'])->name('deliveries');
-    Route::get('/profile', [DriverController::class, 'profile'])->name('profile');
+// ✅ Drivers Routes
+Route::prefix('admin/drivers')->name('admin.drivers.')->group(function () {
+    Route::get('/', [DriverController::class, 'index'])->name('index');
+    Route::get('/create', [DriverController::class, 'create'])->name('create');
+    Route::post('/', [DriverController::class, 'store'])->name('store');
 });
 
-// =====================
-// Booking Routes
-// =====================
-Route::prefix('booking')->name('booking.')->group(function () {
-    Route::get('/', [BookingController::class, 'index'])->name('index'); // /booking
+// ✅ Bookings Routes
+Route::prefix('admin/bookings')->name('admin.bookings.')->group(function () {
+    Route::get('/', [BookingController::class, 'index'])->name('index');
     Route::get('/create', [BookingController::class, 'create'])->name('create');
-    Route::post('/store', [BookingController::class, 'store'])->name('store');
-    Route::get('/list', [BookingController::class, 'list'])->name('list');
+    Route::post('/', [BookingController::class, 'store'])->name('store');
 });

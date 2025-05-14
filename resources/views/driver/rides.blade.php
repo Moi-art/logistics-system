@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-xl font-semibold mb-4">Assigned Rides</h2>
-    <p>No rides assigned yet.</p>
+    <h2>Driver Rides</h2>
+    <ul class="list-group">
+        @foreach($rides as $ride)
+            <li class="list-group-item">
+                Ride ID: {{ $ride->id }} | Customer: {{ $ride->customer_id }} | From {{ $ride->pickup_location }} to {{ $ride->dropoff_location }}
+            </li>
+        @endforeach
+    </ul>
 @endsection
