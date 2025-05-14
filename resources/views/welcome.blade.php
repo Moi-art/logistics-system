@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>TransLink EA</title>
     <style>
@@ -10,17 +11,25 @@
             color: white;
             text-shadow: 0 1px 2px black;
         }
+
         .overlay {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 60px 20px;
+            /* background-color: rgba(0, 0, 0, 0.5); */
+            background: url('/images/bg.jpeg') no-repeat center center fixed;
+            /* padding: 60px 20px; */
+            position: relative;
+            height: 100vh;
+            background-repeat: no-repeat;
+            justify-content: center;
             text-align: center;
         }
+
         .btn-primary {
             font-size: 1.2rem;
             padding: 10px 25px;
         }
     </style>
 </head>
+
 <body>
     <div class="overlay">
         <h1 class="display-4">TransLink EA</h1>
@@ -28,6 +37,5 @@
         <a href="{{ route('admin.home') }}" class="btn btn-primary mt-3">Launch Admin Dashboard</a>
     </div>
 </body>
+
 </html>
-
-

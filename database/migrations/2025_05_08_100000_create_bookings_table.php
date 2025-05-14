@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id')->constrained()->onDelete('cascade');
-            $table->foreignId('driver_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('customer_id')->constrained('customers')->onDelete('cascade');
+            $table->foreignId('driver_id')->nullable()->constrained('drivers')->onDelete('cascade');
             $table->string('pickup_location');
             $table->string('dropoff_location');
             $table->string('status')->default('pending'); // pending, accepted, completed

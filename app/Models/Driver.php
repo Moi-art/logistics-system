@@ -6,5 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Driver extends Model
 {
-    protected $gaurded= [];
+     protected $fillable= [
+        'name',
+        'email',
+        'phone',
+        'address',
+        'license_number',
+
+    ];
 }

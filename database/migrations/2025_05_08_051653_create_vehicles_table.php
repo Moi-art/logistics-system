@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('driver_id')->constrained()->onDelete('cascade');
+            $table->foreignId('driver_id')->constrained('drivers')->onDelete('cascade');
             $table->string('make');
             $table->string('model');
             $table->string('plate_number');
