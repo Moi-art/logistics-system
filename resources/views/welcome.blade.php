@@ -33,6 +33,7 @@
 <body>
     <div class="overlay">
         <h1 class="display-4">TransLink EA</h1>
+        {{-- <h1 class="display-4">TransLink EA</h1> --}}
         <p class="lead">Track, Book, Deliver — Seamlessly</p>
         <a href="{{ route('admin.home') }}" class="btn btn-primary mt-3">Launch Admin Dashboard</a>
     </div>
