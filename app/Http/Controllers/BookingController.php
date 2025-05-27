@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Driver;
 use App\Models\Booking;
 use App\Models\Customer;
+use App\Models\TruckCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

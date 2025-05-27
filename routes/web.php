@@ -5,14 +5,20 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\TruckCategoryController; // ✅ Add Controller for truck categories
 
 // ✅ Landing Page Route (Welcome)
 Route::get('/', function () {
     return view('welcome');
 })->name('landing');
 
-// ✅ Admin Dashboard
+// ✅ Admin Dashboard via HomeController (optional)
 Route::get('/admin', [HomeController::class, 'index'])->name('admin.home');
+
+// ✅ New: Dashboard route linked to admin.dashboard.blade.php
+Route::get('/dashboard', function () {
+    return view('admin.dashboard'); // 👈 Make sure this view exists
+})->name('admin.dashboard');
 
 // ✅ Customers Routes
 Route::prefix('admin/customers')->name('admin.customers.')->group(function () {
@@ -34,3 +40,12 @@ Route::prefix('admin/bookings')->name('admin.bookings.')->group(function () {
     Route::get('/create', [BookingController::class, 'create'])->name('create');
     Route::post('/', [BookingController::class, 'store'])->name('store');
 });
+
+// ✅ Truck Categories Routes
+Route::prefix('admin/categories')->name('admin.categories.')->group(function () {
+    Route::get('/', [TruckCategoryController::class, 'index'])->name('index');
+    Route::get('/create', [TruckCategoryController::class, 'create'])->name('create');
+    Route::post('/', [TruckCategoryController::class, 'store'])->name('store');
+});
+
+

@@ -13,6 +13,15 @@
             <input type="text" class="form-control" name="driver_id" required>
         </div>
         <div class="mb-3">
+            <label for="truck_category_id" class="form-label">Truck Category</label>
+            <select name="truck_category_id" class="form-control">
+                <option value="">Select Category</option>
+                @foreach ($truckCategories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-3">
             <label for="pickup_location" class="form-label">Pickup Location</label>
             <input type="text" class="form-control" name="pickup_location" required>
         </div>
